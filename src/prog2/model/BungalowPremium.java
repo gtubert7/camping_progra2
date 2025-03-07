@@ -12,7 +12,7 @@ public class BungalowPremium extends Bungalow{
         setCodiWifi(codiWifi);
     }
 
-    public boolean getServeisExtra(){return serveisExtra;}
+    public boolean isServeisExtra(){return serveisExtra;}
     public void setServeisExtra(boolean serveisExtra){this.serveisExtra = serveisExtra;}
 
     public String getCodiWifi(){return codiWifi;}
@@ -21,5 +21,9 @@ public class BungalowPremium extends Bungalow{
     public boolean correcteFuncionament() {
         int longitud = getCodiWifi().length();
         return super.correcteFuncionament() && 8 <= longitud && longitud <= 16;
+    }
+
+    public String toString(){
+        return super.toString() + "BungalowPremium{serveisExtra=" + isServeisExtra() + ", codiWifi=" + getCodiWifi() + "}";
     }
 }

@@ -1,12 +1,12 @@
 package prog2.model;
 
-public class Habitatges extends Allotjament{
+public abstract class Casa extends Allotjament{
     private String mida;
     private int habitacions;
     private int placesPersones;
 
-    Habitatges(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones){
-        super(nom_, idAllotjament_);
+    Casa(String nom_, String idAllotjament_, long estadaMinimaALTA, long estadaMinimaBAIXA, String mida, int habitacions, int placesPersones){
+        super(nom_, idAllotjament_, estadaMinimaALTA, estadaMinimaBAIXA);
 
         setMida(mida);
         setHabitacions(habitacions);
@@ -21,4 +21,8 @@ public class Habitatges extends Allotjament{
 
     public int getPlacesPersones(){return placesPersones;}
     public void setPlacesPersones(int placesPersones){this.placesPersones = placesPersones;}
+
+    public String toString(){
+        return super.toString() + "Casa{mida=" + getMida() + ", habitacions=" + getHabitacions() + ", placesPersones=" + getPlacesPersones() + "}";
+    }
 }

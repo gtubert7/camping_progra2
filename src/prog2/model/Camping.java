@@ -8,15 +8,19 @@ import java.util.ArrayList;
 public class Camping implements InCamping{
 
     private String nom;
-    private ArrayList<Allotjament> llistaAllotjaments;
-    private ArrayList<Client> llistaClients;
-    private LlistaReserves llistaReserves;
+    private ArrayList<Allotjament> llistaAllotjaments = new ArrayList<Allotjament>();
+    private ArrayList<Client> llistaClients = new ArrayList<Client>();
+    private LlistaReserves llistaReserves = new LlistaReserves();
+
+    public Camping (String nom){
+        this.nom = nom;
+    }
 
     public String getNom(){
         return nom;
     }
 
-    public LlistaReserves getLListaReserves(){
+    public LlistaReserves getLlistaReserves(){
         return llistaReserves;
     }
 
@@ -32,7 +36,9 @@ public class Camping implements InCamping{
         return getLlistaAllotjaments().size();
     }
 
-    int getNumReserves();
+    public int getNumReserves(){
+        return llistaReserves.getNumReserves();
+    }
 
     public int getNumClients(){
         return getLlistaClients().size();
@@ -74,20 +80,62 @@ public class Camping implements InCamping{
         llistaAllotjaments.add(mobilHome);
     }
 
-    void afegirReserva(String id_, String dni_, LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva;
+    public void afegirReserva(String id_, String dni_, LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva{
+            Allotjament allotjament = buscarAllotjament(id_);
+            Client client = buscarClient(dni_);
 
-    float calculMidaTotalParceles();
+            llistaReserves.afegirReserva(allotjament, client, dataEntrada, dataSortida);
 
-    int calculAllotjamentsOperatius();
+    }
+    public float calculMidaTotalParceles(){
+        float midaTotal = 0.0f;
+        for (Allotjament allotjament: llistaAllotjaments){
+            if (allotjament instanceof Parcela)
+                midaTotal += ((Parcela) allotjament).getMida();
+        }
+        return midaTotal;
+    }
 
-    Allotjament getAllotjamentEstadaMesCurta();
+    public int calculAllotjamentsOperatius(){
+        int allotjamentsOperatius = 0;
+        for (Allotjament allotjament: llistaAllotjaments){
+            if (allotjament.correcteFuncionament()) allotjamentsOperatius += 1;
+        }
+        return allotjamentsOperatius;
+    }
+
+    public Allotjament getAllotjamentEstadaMesCurta(){
+        Allotjament mesCurt = llistaAllotjaments.get(0);
+
+        for (Allotjament allotjament: llistaAllotjaments){
+            if (allotjament.getEstadaMinima(InAllotjament.Temp.BAIXA) < mesCurt.getEstadaMinima(InAllotjament.Temp.BAIXA))
+                mesCurt = allotjament;
+        }
+
+        return mesCurt;
+    }
 
     public static InAllotjament.Temp getTemporada(LocalDate data){
         int dia = data.getDayOfMonth();
         int mes = data.getMonthValue();
 
         if (4 <= mes && mes <= 7) return InAllotjament.Temp.values()[0];
-        else if (mes == 3 && dia > 21) return InAllotjament.Temp.values()[0];
+        else if (mes == 3 && dia >= 21) return InAllotjament.Temp.values()[0];
+        else if (mes == 8 && dia <= 20) return InAllotjament.Temp.values()[0];
         else return InAllotjament.Temp.values()[1];
+    }
+
+    public Allotjament buscarAllotjament(String id) throws ExcepcioReserva{
+        for(Allotjament allotjament: llistaAllotjaments){
+            if (allotjament.getId().equals(id)) return allotjament;
+        }
+        throw new ExcepcioReserva ("Aquest ID d'allotjament es invàlid");
+    }
+
+    public Client buscarClient(String dni) throws ExcepcioReserva{
+        for(Client client: llistaClients){
+            if (client.getDni().equals(dni)) return client;
+        }
+        throw new ExcepcioReserva("Aquest DNI no és valid");
     }
 }

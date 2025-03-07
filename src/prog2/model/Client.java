@@ -15,7 +15,7 @@ public class Client {
 
     public String getDni(){return dni;}
     public void setDni (String dni) throws ExcepcioReserva{
-        if (!dni.matches("\\S{9}") ) throw new ExcepcioReserva("El DNI no és vàlid.");
+        if (dni.length() != 9) throw new ExcepcioReserva("El DNI ha de tenir 9 caràcters.");
         this.dni = dni;
 
     }

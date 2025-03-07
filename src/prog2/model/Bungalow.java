@@ -1,6 +1,6 @@
 package prog2.model;
 
-public class Bungalow extends Habitatges{
+public class Bungalow extends Casa {
     private int placesParquing;
     private boolean terrassa;
     private boolean tv;
@@ -8,7 +8,7 @@ public class Bungalow extends Habitatges{
 
     public Bungalow(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                     int placesParquing, boolean terrassa, boolean tv, boolean aireFred){
-        super(nom_, idAllotjament_, mida, habitacions, placesPersones);
+        super(nom_, idAllotjament_, 7, 4, mida, habitacions, placesPersones);
 
         setPlacesParquing(placesParquing);
         setTerrassa(terrassa);
@@ -19,16 +19,21 @@ public class Bungalow extends Habitatges{
     public int getPlacesParquing(){return placesParquing;}
     public void setPlacesParquing(int placesParquing){this.placesParquing = placesParquing;}
 
-    public boolean getTerrassa(){return terrassa;}
+    public boolean isTerrassa(){return terrassa;}
     public void setTerrassa(boolean terrassa){this.terrassa = terrassa;}
 
-    public boolean getTv(){return tv;}
+    public boolean isTv(){return tv;}
     public void setTv(boolean tv){this.tv = tv;}
 
-    public boolean getAireFred(){return aireFred;}
+    public boolean isAireFred(){return aireFred;}
     public void setAireFred(boolean aireFred){this.aireFred = aireFred;}
 
     public boolean correcteFuncionament(){
-        return getAireFred();
+        return isAireFred();
+    }
+
+    public String toString(){
+        return super.toString() + "Bungalow{placesParquing="+ getPlacesParquing() + ", terrassa=" + isTerrassa() + ", tv=" + isTv() + ", aireFred=" + isAireFred() +"}";
     }
 }
+
