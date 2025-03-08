@@ -19,9 +19,9 @@ public class Reserva {
      * @throws ExcepcioReserva si les dates de la reserva son incoherents
      */
     public Reserva(Allotjament allotjament, Client client, LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva {
-        //Si les dates son cronologicament incoherents
+        //Si les dates son cronologicament incoherents:
         if (dataEntrada.isAfter(dataSortida)) throw new ExcepcioReserva("Aquestes dates son incorrectes");
-
+        Altrament:
         setAllotjament_(allotjament);
         setClient(client);
         setDataEntrada(dataEntrada);

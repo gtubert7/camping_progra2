@@ -52,8 +52,8 @@ public class LlistaReserves implements InLlistaReserves{
      * @return True si la reserva supera l'estada minima, fals si no
      */
     public boolean isEstadaMinima(Allotjament allotjament, LocalDate dataEntrada, LocalDate dataSortida){
-        long estada = ChronoUnit.DAYS.between(dataEntrada, dataSortida);
-        long estadaMinima =  allotjament.getEstadaMinima(Camping.getTemporada(dataEntrada));
+        long estada = ChronoUnit.DAYS.between(dataEntrada, dataSortida); //Calculem els dies entre el principi i la fi de l'estada
+        long estadaMinima =  allotjament.getEstadaMinima(Camping.getTemporada(dataEntrada)); //Mirem l'estada mínima
         return estadaMinima <= estada;
     }
 

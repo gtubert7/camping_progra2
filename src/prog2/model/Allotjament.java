@@ -21,7 +21,7 @@ public abstract class Allotjament implements InAllotjament{
     public void setId(String id){idAllotjament = id;}
 
     public long getEstadaMinima(Temp temp){
-        switch (temp.ordinal()){ //depenem de quina temporada es
+        switch (temp.ordinal()){ //depenent de quina temporada es, 0 i 1 per les posicions de l'enum a InAllotjament
             case(0):
                 return estadaMinimaALTA;
             case(1):
@@ -30,7 +30,7 @@ public abstract class Allotjament implements InAllotjament{
         return -1;
     }
     public void setEstadaMinima(long estadaMinimaALTA_, long estadaMinimaBAIXA_){
-        this.estadaMinimaALTA = estadaMinimaALTA_;
+        this.estadaMinimaALTA = estadaMinimaALTA_; //Canviem l'estada alta i baixa
         this.estadaMinimaBAIXA = estadaMinimaBAIXA_;
     }
 

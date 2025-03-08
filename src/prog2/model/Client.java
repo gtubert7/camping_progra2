@@ -22,7 +22,7 @@ public class Client {
 
     }
     /**
-     * Metode que retorna la informacio del
+     * Metode que retorna la informacio de l'objecte
      * @return String amb informacio sobre el client
      */
     public String toString(){

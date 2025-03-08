@@ -221,11 +221,11 @@ public class Camping implements InCamping{
     public static InAllotjament.Temp getTemporada(LocalDate data){
         int dia = data.getDayOfMonth(); //obtenim el dia
         int mes = data.getMonthValue(); //obtenim el mes
-
+        //Mirem segons el primer dia de la reserva
         if (4 <= mes && mes <= 8) return InAllotjament.Temp.values()[0]; //Si cau entre abril i juliol es alta (posicio 0 a l'enum Temp
         else if (mes == 3 && dia >= 21) return InAllotjament.Temp.values()[0]; //Si cau a finals de març
         else if (mes == 9 && dia <= 20) return InAllotjament.Temp.values()[0]; //Si cau a principis de setembre
-        else return InAllotjament.Temp.values()[1]; //Sino, retorna la posicio 1 de l'enum
+        else return InAllotjament.Temp.values()[1]; //Si no, retorna la posicio 1 de l'enum (baixa)
     }
 
     /**
@@ -235,7 +235,7 @@ public class Camping implements InCamping{
      * @throws ExcepcioReserva si l'id de l'allotjament és no existeix a la llista
      */
     public Allotjament buscarAllotjament(String id) throws ExcepcioReserva{
-        for(Allotjament allotjament: llistaAllotjaments){
+        for(Allotjament allotjament: llistaAllotjaments){ //Ciclem pels allotjaments
             if (allotjament.getId().equals(id)) return allotjament;
         }
         throw new ExcepcioReserva ("Aquest ID d'allotjament es invàlid"); //Si no es troba
@@ -248,7 +248,7 @@ public class Camping implements InCamping{
      * @throws ExcepcioReserva Si el dni no es a la llista de clients
      */
     public Client buscarClient(String dni) throws ExcepcioReserva{
-        for(Client client: llistaClients){
+        for(Client client: llistaClients){ //Ciclem pels clients
             if (client.getDni().equals(dni)) return client;
         }
         throw new ExcepcioReserva("Aquest DNI no és valid"); //Si no es troba
