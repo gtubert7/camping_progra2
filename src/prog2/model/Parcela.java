@@ -1,5 +1,11 @@
 package prog2.model;
 
+/**
+ * Subclasse Parcela
+ * @author FrexasLautaro
+ * @author TubertGuillem
+ */
+
 public class Parcela extends Allotjament{
     private float metres;
     private boolean connexioElectrica;

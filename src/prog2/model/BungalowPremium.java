@@ -1,5 +1,11 @@
 package prog2.model;
 
+/**
+ * Subclasse BungalowPremium
+ * @author FrexasLautaro
+ * @author TubertGuillem
+ */
+
 public class BungalowPremium extends Bungalow{
     private boolean serveisExtra;
     private String codiWifi;

@@ -5,6 +5,12 @@ import prog2.vista.ExcepcioReserva;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * Implementació de camping
+ * @author FrexasLautaro
+ * @author TubertGuillem
+ */
+
 public class Camping implements InCamping{
 
     private String nom;

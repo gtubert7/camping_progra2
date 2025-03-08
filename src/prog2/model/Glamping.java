@@ -1,5 +1,11 @@
 package prog2.model;
 
+/**
+ * Subclasse Glamping
+ * @author FrexasLautaro
+ * @author TubertGuillem
+ */
+
 public class Glamping extends Casa {
     private String material;
     private boolean casaMascota;

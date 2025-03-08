@@ -4,6 +4,12 @@ import prog2.vista.ExcepcioReserva;
 
 import java.time.LocalDate;
 
+/**
+ * Classe Reserva
+ * @author FrexasLautaro
+ * @author TubertGuillem
+ */
+
 public class Reserva {
     private Allotjament allotjament;
     private Client client;

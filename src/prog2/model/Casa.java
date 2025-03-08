@@ -1,5 +1,11 @@
 package prog2.model;
 
+/**
+ * Subclasse abstracta Casa
+ * @author FrexasLautaro
+ * @author TubertGuillem
+ */
+
 public abstract class Casa extends Allotjament{
     private String mida;
     private int habitacions;

@@ -1,6 +1,12 @@
 package prog2.model;
 import prog2.vista.ExcepcioReserva;
 
+/**
+ * Classe Client
+ * @author FrexasLautaro
+ * @author TubertGuillem
+ */
+
 public class Client {
     private String nom;
     private String dni;

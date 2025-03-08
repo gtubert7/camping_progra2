@@ -6,6 +6,12 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
+/**
+ * Implementació de LlistaReserves
+ * @author FrexasLautaro
+ * @author TubertGuillem
+ */
+
 public class LlistaReserves implements InLlistaReserves{
     private ArrayList <Reserva> llistaReserves = new ArrayList<Reserva>();
 

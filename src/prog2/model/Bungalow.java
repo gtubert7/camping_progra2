@@ -1,5 +1,12 @@
 package prog2.model;
 
+
+/**
+ * Subclasse Bungalow
+ * @author FrexasLautaro
+ * @author TubertGuillem
+ */
+
 public class Bungalow extends Casa {
     private int placesParquing;
     private boolean terrassa;

@@ -1,5 +1,11 @@
 package prog2.model;
 
+/**
+ * Subclasse MobilHome
+ * @author FrexasLautaro
+ * @author TubertGuillem
+ */
+
 public class MobilHome extends Casa {
     private boolean terrassaBarbacoa;
 

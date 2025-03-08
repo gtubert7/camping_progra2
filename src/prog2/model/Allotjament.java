@@ -1,5 +1,11 @@
 package prog2.model;
 
+/**
+ * Implementació d'allotjament
+ * @author FrexasLautaro
+ * @author TubertGuillem
+ */
+
 public abstract class Allotjament implements InAllotjament{
     private String nom;
     private String idAllotjament;
