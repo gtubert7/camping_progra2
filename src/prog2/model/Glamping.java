@@ -21,8 +21,11 @@ public class Glamping extends Casa {
     public boolean correcteFuncionament() {
         return isCasaMascota();
     }
-
-    public String getString(){
+    /**
+     * Metode que retorna la informacio de l'allotjament
+     * @return String amb informacio sobre l'allotjament
+     */
+    public String toString(){
         return super.toString() + "Glamping{material=" + getMaterial() + ", casaMascota=" + isCasaMascota() +"}";
     }
 }

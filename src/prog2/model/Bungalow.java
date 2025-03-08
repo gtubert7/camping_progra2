@@ -6,8 +6,10 @@ public class Bungalow extends Casa {
     private boolean tv;
     private boolean aireFred;
 
+    //Constructor de Bungalow
     public Bungalow(String nom_, String idAllotjament_, String mida, int habitacions, int placesPersones,
                     int placesParquing, boolean terrassa, boolean tv, boolean aireFred){
+        //Fem servir super() per als estats heretats
         super(nom_, idAllotjament_, 7, 4, mida, habitacions, placesPersones);
 
         setPlacesParquing(placesParquing);
@@ -16,6 +18,7 @@ public class Bungalow extends Casa {
         setAireFred(aireFred);
     }
 
+    //Fem els getters i els setters
     public int getPlacesParquing(){return placesParquing;}
     public void setPlacesParquing(int placesParquing){this.placesParquing = placesParquing;}
 
@@ -28,10 +31,15 @@ public class Bungalow extends Casa {
     public boolean isAireFred(){return aireFred;}
     public void setAireFred(boolean aireFred){this.aireFred = aireFred;}
 
+    //Comprovem que hi ha aire fred
     public boolean correcteFuncionament(){
         return isAireFred();
     }
 
+    /**
+     * Metode que retorna la informacio de l'allotjament
+     * @return String amb informacio sobre l'allotjament
+     */
     public String toString(){
         return super.toString() + "Bungalow{placesParquing="+ getPlacesParquing() + ", terrassa=" + isTerrassa() + ", tv=" + isTv() + ", aireFred=" + isAireFred() +"}";
     }

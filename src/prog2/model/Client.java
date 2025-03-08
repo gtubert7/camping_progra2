@@ -5,11 +5,13 @@ public class Client {
     private String nom;
     private String dni;
 
+    //Constructor de Client
     public Client(String nom, String dni){
         setNom(nom);
         setDni(dni);
     }
 
+    //Construim els getters i els setters
     public String getNom(){return nom;}
     public void setNom(String nom){this.nom = nom;}
 
@@ -19,7 +21,10 @@ public class Client {
         this.dni = dni;
 
     }
-
+    /**
+     * Metode que retorna la informacio del
+     * @return String amb informacio sobre el client
+     */
     public String toString(){
         return "Nom: " + getNom() + ", DNI: " + getDni();
     }

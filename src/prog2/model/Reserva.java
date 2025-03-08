@@ -10,7 +10,16 @@ public class Reserva {
     LocalDate dataEntrada;
     LocalDate dataSortida;
 
+    /**
+     * Constructor de Reserva
+     * @param allotjament l'allotjament que volem resevar
+     * @param client El client que vol reservar
+     * @param dataEntrada El primer dia de la reserva
+     * @param dataSortida L'ultim dia de la reserva
+     * @throws ExcepcioReserva si les dates de la reserva son incoherents
+     */
     public Reserva(Allotjament allotjament, Client client, LocalDate dataEntrada, LocalDate dataSortida) throws ExcepcioReserva {
+        //Si les dates son cronologicament incoherents
         if (dataEntrada.isAfter(dataSortida)) throw new ExcepcioReserva("Aquestes dates son incorrectes");
 
         setAllotjament_(allotjament);
@@ -19,6 +28,8 @@ public class Reserva {
         setDataSortida(dataSortida);
     }
 
+
+    //Construim els getters i els setters
     public Allotjament getAllotjament_(){return allotjament;}
     public void setAllotjament_(Allotjament allotjament){this.allotjament = allotjament;}
 
